@@ -10,8 +10,15 @@ func main () {
 		}
 	}
 	foo()
+	bar()
 }
 
 func foo ()  {
 	fmt.Println("Hello foo")
+}
+
+func bar ()  {
+	// No se puede declarar una variable sin usar
+	n, _ := fmt.Println("Hello", 24, true)
+	fmt.Println(n)
 }
