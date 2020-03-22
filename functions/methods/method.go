@@ -9,8 +9,16 @@ type person struct {
 	salary int
 }
 
+func (p person) eat(food string) {
+	fmt.Println("I eat",food)
+}
+
 func (p person) hello() {
-	fmt.Println("Hello my name is ", p.name)
+	fmt.Println("Hello my name is", p.name)
+}
+
+type human interface {
+	speak()
 }
 
 func main() {
@@ -20,4 +28,5 @@ func main() {
 		3000,
 	}
 	newperson.hello()
+	newperson.eat("Ceviche")
 }
