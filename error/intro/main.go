@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
 )
@@ -10,7 +11,7 @@ import (
 func main() {
 	f, err := os.Create("names.txt")
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalln(err)
 	}
 	defer f.Close()
 
