@@ -14,7 +14,7 @@ func deposit(value int, wg *sync.WaitGroup) {
 	mutex.Lock()
 	fmt.Printf("Depositing %d to account with balance %d\n", value, balance)
 	balance += value
-	mutex.Unlock()
+	mutex.Unlock)
 	wg.Done()
 }
 
