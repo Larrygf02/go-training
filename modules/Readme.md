@@ -44,3 +44,8 @@ go mod verify
 go mod edit -replace <module>=<path>
 ```
 # No se debe modificar los paquetes originales del go/pkg
+
+# Tener las dependencias en tu directorio
+```
+go mod vendor
+```
