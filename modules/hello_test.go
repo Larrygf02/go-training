@@ -15,3 +15,10 @@ func TestProverb(t *testing.T) {
 		t.Errorf("Proverb() = %q, want %q", got, want)
 	}
 }
+
+func TestGoodbye(t *testing.T) {
+	want := "Goodbye"
+	if got := Goodbye(); got != want {
+		t.Errorf("Goodbye() = %q, want %q", got, want)
+	}
+}

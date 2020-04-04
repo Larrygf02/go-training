@@ -11,3 +11,7 @@ func Hello() string {
 func Proverb() string {
 	return quote.Concurrency()
 }
+
+func Goodbye() string {
+	return quote.Goodbye()
+}

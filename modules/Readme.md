@@ -33,3 +33,14 @@ go mod edit -json
 ```
 go mod download module
 ```
+
+# Verificar que todos los modulos esten correctos
+```
+go mod verify
+```
+
+# Reemplazar un modulo por una variacion en un path especifico
+```
+go mod edit -replace <module>=<path>
+```
+# No se debe modificar los paquetes originales del go/pkg
