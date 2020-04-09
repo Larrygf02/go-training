@@ -2,17 +2,16 @@ package main
 
 import "fmt"
 
-func product(nums ...int) {
+func product(nums ...int) int {
 	fmt.Print(nums, " ")
 	total := 1
 	for _, num := range nums {
 		total *= num
 	}
-	fmt.Println(total)
-
+	return total
 }
 
 func main() {
-	product(1, 2)
-	product(1, 2, 3)
+	fmt.Println(product(1, 2))
+	fmt.Println(product(1, 2, 3))
 }
