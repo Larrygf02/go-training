@@ -21,5 +21,4 @@ func main() {
 	for key, value := range m {
 		fmt.Printf("%s -> %d\n", key, value)
 	}
-
 }
