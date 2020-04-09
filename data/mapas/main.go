@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//make(map[key-type]val-type)
 func main() {
 	m := make(map[string]int)
 	m["k1"] = 4
@@ -15,4 +16,10 @@ func main() {
 	m["k1"] = 6
 	fmt.Println("map", m)
 	fmt.Println("item", v1)
+	m["k4"] = 100
+	m["k3"] = 23
+	for key, value := range m {
+		fmt.Printf("%s -> %d\n", key, value)
+	}
+
 }
