@@ -42,7 +42,11 @@ func AllUseres(w http.ResponseWriter, r *http.Request) {
 }
 
 func NewUser(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "New user endpint hit")
+	db, err := gorm.Open("sqlite3", "test.db")
+	if err != nil {
+		panic("Could not connect to the database")
+	}
+	defer db.Close()
 	vars := mux.Vars(r)
 	name := vars["name"]
 	email := vars["email"]
