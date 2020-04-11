@@ -31,6 +31,7 @@ func InitialMigration() {
 }
 
 func AllUseres(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	db, err := gorm.Open("sqlite3", "test.db")
 	if err != nil {
 		panic("Could not connect to the database")
@@ -52,6 +53,8 @@ func NewUser(w http.ResponseWriter, r *http.Request) {
 	email := vars["email"]
 
 	db.Create(&User{Name: name, Email: email})
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
 	fmt.Fprintf(w, "New user successfully created")
 }
 
