@@ -42,3 +42,7 @@ func (m *Mysql) GetNow() (*time.Time, error) {
 	}
 	return t, nil
 }
+
+func (m *Mysql) Close() error {
+	return m.Close()
+}
