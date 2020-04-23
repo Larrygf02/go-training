@@ -16,7 +16,7 @@ func (m *Mysql) Connect() error {
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?tls=false&autocommit=true&allowNativePasswords=true&parseTime=true",
 		"root",
-		"root",
+		"",
 		"127.0.0.1",
 		"3306",
 		"mysql",
@@ -44,5 +44,5 @@ func (m *Mysql) GetNow() (*time.Time, error) {
 }
 
 func (m *Mysql) Close() error {
-	return m.Close()
+	return m.db.Close()
 }
