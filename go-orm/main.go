@@ -19,6 +19,7 @@ func handleRequests() {
 	myRouter.HandleFunc("/user/{name}/{email}", NewUser).Methods("POST")
 	myRouter.HandleFunc("/user/{name}", deleteUser).Methods("DELETE")
 	myRouter.HandleFunc("/user/{name}/{email}", updateUser).Methods("PUT")
+	myRouter.Use(mux.CORSMethodMiddleware(myRouter))
 	log.Fatal(http.ListenAndServe(":8081", myRouter))
 }
 

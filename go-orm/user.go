@@ -31,6 +31,7 @@ func InitialMigration() {
 }
 
 func AllUseres(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Content-Type", "application/json")
 	db, err := gorm.Open("sqlite3", "test.db")
 	if err != nil {
