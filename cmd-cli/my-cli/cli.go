@@ -66,6 +66,7 @@ func main() {
 				cname, err := net.LookupCNAME(c.String("host"))
 				if err != nil {
 					fmt.Println(err)
+					return err
 				}
 				fmt.Println(cname)
 				return nil
@@ -79,9 +80,10 @@ func main() {
 				mx, err := net.LookupMX(c.String("host"))
 				if err != nil {
 					fmt.Println(err)
+					return err
 				}
 				for i := 0; i < len(mx); i++ {
-					fmt.Printf(mx[i].Host, mx[i].Pref)
+					fmt.Println(mx[i].Host, mx[i].Pref)
 				}
 				return nil
 			},
