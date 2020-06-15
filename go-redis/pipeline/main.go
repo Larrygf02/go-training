@@ -12,22 +12,17 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/go-redis/redis/v8"
+	"github.com/my/repo/config"
 )
 
 var ctx = context.Background()
 
 func main() {
-	client := redis.NewClient(&redis.Options{
-		Addr:     "192.168.99.100:6379",
-		Password: "",
-		DB:       0,
-	})
-	_, err := client.Ping(ctx).Result()
+	client := config.NewClientRedis()
 	pipe := client.Pipeline()
 	incr := pipe.Incr(ctx, "pipeline_counter")
 	pipe.Expire(ctx, "pipeline_counter", time.Hour)
-	_, err = pipe.Exec(ctx)
+	_, err := pipe.Exec(ctx)
 	if err != nil {
 		panic(err)
 	}
