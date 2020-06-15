@@ -4,21 +4,15 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/go-redis/redis/v8"
+	"github.com/my/repo/config"
 )
 
 var ctx = context.Background()
 
 func main() {
-	client := redis.NewClient(&redis.Options{
-		Addr:     "192.168.99.100:6379",
-		Password: "",
-		DB:       0,
-	})
-	pong, err := client.Ping(ctx).Result()
-	fmt.Println(pong, err)
+	client := config.NewClientRedis()
 	// Publish message
-	err = client.Publish(ctx, "mychannel", "payload").Err()
+	err := client.Publish(ctx, "mychannel", "payload").Err()
 	if err != nil {
 		panic(err)
 	}
