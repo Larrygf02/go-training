@@ -5,7 +5,7 @@ COPY main.go .
 
 RUN go build -o webserver .
 
-FROM alpine
+FROM scratch
 WORKDIR /app
 COPY --from=builder /go/src/app/ /app/
 CMD ["./webserver"]
